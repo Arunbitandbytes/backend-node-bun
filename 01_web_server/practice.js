@@ -1,24 +1,24 @@
-const http = require('http')
+import { createServer } from 'http';
 
-const hostname = '127.0.0.3'
-const port = 3001
+const hostname = '127.0.0.3';
+const port = 3001;
 
-const server = http.createServer((req, res) => {
+const server = createServer((req, res) => {
     if (req.url === '/') {
-        res.statusCode = 200
-        res.setHeader('Content-Type', 'text/plain')
-        res.end('give a biriyani')
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'text/plain');
+        res.end('give a biriyani');
     } else if (req.url === '/order') {
-        res.statusCode = 200
-        res.setHeader('Content-Type', 'text/plain')
-        res.end('biriyani ordered successfully')
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'text/plain');
+        res.end('biriyani ordered successfully');
     } else {
-        res.statusCode = 404
-        res.setHeader('Content-Type', 'text/plain')
-        res.end('failed')
+        res.statusCode = 404;
+        res.setHeader('Content-Type', 'text/plain');
+        res.end('failed');
     }
-})
+});
 
 server.listen(port, hostname, () => {
-    console.log(`server is listening at http://${hostname}:${port}`)
-})
+    console.log(`server is listening at http://${hostname}:${port}`);
+});
